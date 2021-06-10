@@ -27,6 +27,7 @@ class Vistle < Formula
   depends_on "open-scene-graph" => :optional
   depends_on "embree"
   depends_on "ispc"
+  depends_on "xorgrgb"
   depends_on "covise" if build.with? "cover"
 
   depends_on "mpich" if build.with? "mpich"
