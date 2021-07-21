@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "d5bbf766c18037547c608fedd2f0f0881e8323d5"
-  version "2021.1"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "b8b26b274c3490468d6a5588ce5e574ea500f020"
+  version "2021.7"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-cuda", "Build with CUDA support"
@@ -21,6 +21,8 @@ class Covise < Formula
   depends_on "swig" => :build
 
   depends_on "xerces-c"
+  depends_on "qt5"
+  conflicts_with "qt6"
   depends_on "glew"
   depends_on "jpeg" => :optional
   depends_on "jpeg-turbo" if build.without? "jpeg"
@@ -31,7 +33,6 @@ class Covise < Formula
   depends_on "freetype"
   depends_on "boost"
   depends_on "python3"
-  depends_on "qt"
   depends_on "gdcm" => :optional
   depends_on "cfitsio" => :recommended
   depends_on "teem" => :recommended
