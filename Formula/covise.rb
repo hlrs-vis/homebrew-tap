@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "b8b26b274c3490468d6a5588ce5e574ea500f020"
-  version "2021.7"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "d2518a37efa2c4443d2c0c5b359b7e1fea3f394c"
+  version "2021.12"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-cuda", "Build with CUDA support"
@@ -21,8 +21,8 @@ class Covise < Formula
   depends_on "swig" => :build
 
   depends_on "xerces-c"
-  depends_on "qt5"
-  conflicts_with "qt6"
+  depends_on "qt@5"
+  conflicts_with "qt@6"
   depends_on "glew"
   depends_on "jpeg" => :optional
   depends_on "jpeg-turbo" if build.without? "jpeg"
@@ -43,7 +43,8 @@ class Covise < Formula
   depends_on "cgns" => :optional
   depends_on "snappy" => :optional
   depends_on "Caskroom/cask/cuda" if build.with? "cuda"
-  depends_on "proj" => :recommended
+  depends_on "proj@7" => :recommended
+  conflicts_with "proj@8"
   depends_on "gdal" => :recommended
   depends_on "libarchive"
 
@@ -58,9 +59,10 @@ class Covise < Formula
   #depends_on "mpich" => :optional
   depends_on "open-mpi" if build.with? "mpi"
   depends_on "mpich" if build.with? "mpich"
+  # TouchInteraction plugin, but this is does not compile because of missing libgcc_s.1.1.dylib
+  #depends_on "openblas"
 
-
-  depends_on :gcc  if build.with? "fortran"
+  depends_on "gcc" if build.with? "fortran"
   #conflicts_with "fortran", :because => "linking with Fortran libraries fails without explicit Fortran dependency, specify --with-fortran" if build.without? "fortran"
 
   depends_on "vtk" => :recommended
@@ -95,6 +97,10 @@ class Covise < Formula
     cmake_args << "-DCOVISE_USE_X11:BOOL=OFF" if build.without? "x11"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=OFF" if build.without? "mpi"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=ON" if build.with? "mpi"
+    cmake_args << "-DCOVISE_USE_QT5:BOOL=ON"
+
+    #because TouchInteraction does not compile
+    cmake_args << "-DCMAKE_DISABLE_FIND_PACKAGE_BLAS:BOOL=ON"
 
     #cmake_args << "-DCOVISE_USE_VIRVO=OFF"
     #cmake_args << "-DCOVISE_BUILD_MODULES=OFF"
