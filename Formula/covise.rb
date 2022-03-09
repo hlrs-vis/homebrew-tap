@@ -11,7 +11,6 @@ class Covise < Formula
   option "with-jpeg", "Build against libjpeg instead of libjpeg-turbo"
   option "with-x11", "Build against X11 and Open Motif"
   option "with-fortran", "Build modules requiring Fortran"
-  option "with-mpi", "Build OpenCOVER with MPI support"
   option "without-assimp", "Build without support for reading 3D models with Assimp"
   option "without-vtk", "Build without support for VTK data"
   option "without-hdf5", "Build without support for HDF5 based file formats"
@@ -44,7 +43,7 @@ class Covise < Formula
   depends_on "snappy" => :optional
   depends_on "Caskroom/cask/cuda" if build.with? "cuda"
   depends_on "proj@7" => :recommended
-  conflicts_with "proj@8"
+  conflicts_with "proj"
   depends_on "gdal" => :recommended
   depends_on "libarchive"
 
