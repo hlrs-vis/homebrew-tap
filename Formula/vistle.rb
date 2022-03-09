@@ -19,6 +19,7 @@ class Vistle < Formula
   depends_on "python3"
   depends_on "qt"
   depends_on "assimp" => :recommended
+  depends_on "proj" => :recommended
   depends_on "hdf5" => :optional
   depends_on "snappy" => :optional
   depends_on "libarchive"
