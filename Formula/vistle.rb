@@ -1,8 +1,8 @@
 class Vistle < Formula
   homepage "https://vistle.io"
   desc "Parallel visualization system"
-  url "https://github.com/vistle/vistle.git", :using => :git, :revision => "6a80121f69181e1b147aedb6e2619ef3e3c68042"
-  version "2020.9"
+  url "https://github.com/vistle/vistle.git", :using => :git, :revision => "ede180a17661ff61ed856c79b0dacf603f0de11d"
+  version "2023.5"
   head "https://github.com/vistle/vistle.git", :using => :git
 
   option "without-cover", "Build without VR renderer"
@@ -19,7 +19,8 @@ class Vistle < Formula
   depends_on "python3"
   depends_on "qt"
   depends_on "assimp" => :recommended
-  depends_on "proj" => :recommended
+  depends_on "proj" => :recommended if build.without? "cover"
+  depends_on "proj@7" => :recommended if build.with? "cover"
   depends_on "hdf5" => :optional
   depends_on "snappy" => :optional
   depends_on "libarchive"
@@ -28,6 +29,7 @@ class Vistle < Formula
   depends_on "open-scene-graph" => :optional
   depends_on "embree"
   depends_on "ispc"
+  depends_on "cgal"
   depends_on "xorgrgb"
   depends_on "covise" if build.with? "cover"
 
