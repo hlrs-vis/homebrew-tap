@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "d2518a37efa2c4443d2c0c5b359b7e1fea3f394c"
-  version "2021.12"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "9ef5063b794f2d2bc77bb6de4921c1c691b57ad5"
+  version "2023.5"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-cuda", "Build with CUDA support"
@@ -71,8 +71,8 @@ class Covise < Formula
   #depends_on "homebrew/gdcm" if build.with? "gdcm"
   #conflicts_with "gdcm", :because => "including GDCM headers fails without explicit GDCM dependency, specify --with-gdcm" if build.without? "gdcm"
 
-  depends_on "sdl" # => :optional
-  #conflicts_with "sdl", :because => "including SDL header fails without explicit SDL dependency, specify --with-sdl" if build.without? "sdl"
+  depends_on "sdl12-compat" # => :optional
+  #conflicts_with "sdl12-compat", :because => "including SDL header fails without explicit SDL dependency, specify --with-sdl" if build.without? "sdl"
 
   def install
     ENV["COVISEDIR"] = buildpath
