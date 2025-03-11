@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "9ef5063b794f2d2bc77bb6de4921c1c691b57ad5"
-  version "2023.5"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "8b4da30d24173883edbd3328ea766f2561dc539b"
+  version "2025.3"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-cuda", "Build with CUDA support"
@@ -20,8 +20,8 @@ class Covise < Formula
   depends_on "swig" => :build
 
   depends_on "xerces-c"
-  depends_on "qt@5"
-  conflicts_with "qt@6"
+  depends_on "qt@6"
+  conflicts_with "qt@5"
   depends_on "glew"
   depends_on "jpeg" => :optional
   depends_on "jpeg-turbo" if build.without? "jpeg"
@@ -37,13 +37,11 @@ class Covise < Formula
   depends_on "teem" => :recommended
   depends_on "hdf5" => :recommended
   depends_on "homebrew/openmotif" if build.with? "x11"
-  depends_on "hlrs-vis/tap/openinventor" if build.with? "x11"
   depends_on "assimp" => :recommended
   depends_on "cgns" => :optional
   depends_on "snappy" => :optional
   depends_on "Caskroom/cask/cuda" if build.with? "cuda"
-  depends_on "proj@7" => :recommended
-  conflicts_with "proj"
+  depends_on "proj" => :recommended
   depends_on "gdal" => :recommended
   depends_on "libarchive"
 
@@ -54,7 +52,7 @@ class Covise < Formula
   depends_on "bullet"
   depends_on "hlrs-vis/tap/osgcal"
   depends_on "hlrs-vis/tap/opencrg"
-  depends_on "hlrs-vis/tap/libe57"
+  depends_on "hlrs-vis/tap/libe57format"
   #depends_on "mpich" => :optional
   depends_on "open-mpi" if build.with? "mpi"
   depends_on "mpich" if build.with? "mpich"
@@ -77,12 +75,8 @@ class Covise < Formula
   def install
     ENV["COVISEDIR"] = buildpath
     ENV["COVISEDESTDIR"] = buildpath
+    ENV["ARCHSUFFIX"] = "macosopt"
     ENV["EXTERNLIBS"] = ""
-    if MacOS.version >= :el_capitan
-        ENV["ARCHSUFFIX"] = "macosopt"
-    else
-        ENV["ARCHSUFFIX"] = "libc++opt"
-    end
 
     cmake_args = std_cmake_args
     cmake_args << "-DCOVISE_WARNING_IS_ERROR:BOOL=OFF"
@@ -96,7 +90,7 @@ class Covise < Formula
     cmake_args << "-DCOVISE_USE_X11:BOOL=OFF" if build.without? "x11"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=OFF" if build.without? "mpi"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=ON" if build.with? "mpi"
-    cmake_args << "-DCOVISE_USE_QT5:BOOL=ON"
+    cmake_args << "-DCOVISE_USE_QT5:BOOL=OFF"
 
     #because TouchInteraction does not compile
     cmake_args << "-DCMAKE_DISABLE_FIND_PACKAGE_BLAS:BOOL=ON"
