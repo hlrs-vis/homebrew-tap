@@ -102,5 +102,7 @@ class Covise < Formula
   end
 
   test do
+    system "covise --version"
+    system "opencover --version"
   end
 end
