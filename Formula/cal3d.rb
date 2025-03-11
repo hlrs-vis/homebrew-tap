@@ -1,8 +1,8 @@
 class Cal3d < Formula
   desc "Skeletal 3D character animation library written in C++"
   homepage "http://cal3d.sourceforge.net/docs/api/html/cal3dfaq.html"
-  url 'https://github.com/hlrs-vis/cal3d.git', :using => :git, :revision => '8cbf44f8c20a191b67063cb943420ec55e7125b8'
-  version '2018.5.2'
+  url 'https://github.com/hlrs-vis/cal3d.git', :using => :git, :revision => '0a8d937274d6293bc4438bb87a3ba40592005e51'
+  version '2024.1'
   head "git://github.com/hlrs-vis/cal3d.git"
 
   depends_on "autoconf" => :build
