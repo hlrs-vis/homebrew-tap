@@ -10,7 +10,7 @@ class Covise < Formula
   option "with-cuda", "Build with CUDA support"
   option "with-jpeg", "Build against libjpeg instead of libjpeg-turbo"
   option "with-fortran", "Build modules requiring Fortran"
-  option "without-assimp", "Build without support for reading 3D models with Assimp"
+  option "with-assimp", "Build without support for reading 3D models with Assimp"
   option "without-vtk", "Build without support for VTK data"
   option "without-hdf5", "Build without support for HDF5 based file formats"
   option "without-mpi", "Build without support for MPI in OpenCOVER"
@@ -35,7 +35,7 @@ class Covise < Formula
   depends_on "cfitsio" => :recommended
   depends_on "teem" => :recommended
   depends_on "hdf5" => :recommended
-  depends_on "assimp" => :recommended
+  depends_on "assimp" if build.with? "assimp"
   depends_on "cgns" => :optional
   depends_on "snappy" => :optional
   depends_on "Caskroom/cask/cuda" if build.with? "cuda"
@@ -51,9 +51,7 @@ class Covise < Formula
   depends_on "hlrs-vis/tap/osgcal"
   depends_on "hlrs-vis/tap/opencrg"
   depends_on "hlrs-vis/tap/libe57"
-  #depends_on "mpich" => :optional
   depends_on "open-mpi" if build.with? "mpi"
-  depends_on "mpich" if build.with? "mpich"
   # TouchInteraction plugin, but this is does not compile because of missing libgcc_s.1.1.dylib
   #depends_on "openblas"
 
