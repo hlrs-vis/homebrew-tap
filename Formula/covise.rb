@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "8b4da30d24173883edbd3328ea766f2561dc539b"
-  version "2025.3"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "83037cf8fd0eecd1a486ceaca2e9dcad99b446eb"
+  version "2025.6"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-cuda", "Build with CUDA support"
@@ -50,7 +50,7 @@ class Covise < Formula
   depends_on "bullet"
   depends_on "hlrs-vis/tap/osgcal"
   depends_on "hlrs-vis/tap/opencrg"
-  depends_on "hlrs-vis/tap/libe57format"
+  depends_on "hlrs-vis/tap/libe57"
   #depends_on "mpich" => :optional
   depends_on "open-mpi" if build.with? "mpi"
   depends_on "mpich" if build.with? "mpich"
