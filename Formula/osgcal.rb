@@ -1,8 +1,8 @@
 class Osgcal < Formula
   desc "Cal3D adapter for OpenSceneGraph, imported from https://sourceforge.net/p/osgcal/code"
   homepage "http://osgcal.sourceforge.net"
-  url 'https://github.com/hlrs-vis/osgcal.git', :using => :git, :revision => '66f92936b4783627b71ca640e38cc3789d6dc479'
-  version '2022.5'
+  url 'https://github.com/hlrs-vis/osgcal.git', :using => :git, :revision => '09ed244572a1c9313488f93625db4fc0472f5c0e'
+  version '2025.6'
   head "git://github.com/hlrs-vis/osgcal.git"
 
   depends_on "cmake" => :build
