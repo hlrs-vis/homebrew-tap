@@ -1,8 +1,9 @@
 class Openinventor < Formula
   homepage 'http://oss.sgi.com/projects/inventor/'
-  url 'https://github.com/aumuell/open-inventor.git', :using => :git, :revision => '37521a12090ae48fbd2863e26da0f5babf6a2dbd'
+  url 'https://github.com/aumuell/open-inventor/archive/refs/tags/v2.1.6.1.tar.gz'
+  version '2.1.6.1'
+  sha256 '02e9b2d4c7dd16b36be2b3f16d98805408d6b5d525b4397456fe5fed26636cc3'
   head 'https://github.com/aumuell/open-inventor.git', :using => :git
-  version '2.1.6'
 
   depends_on "cmake" => :build
   depends_on "bison" => :build
