@@ -3,8 +3,8 @@ require 'formula'
 class Covise < Formula
   homepage "https://www.hlrs.de/covise/"
   desc "Visualization environment for scientific and engineering data"
-  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "83037cf8fd0eecd1a486ceaca2e9dcad99b446eb"
-  version "2025.6"
+  url "https://github.com/hlrs-vis/covise.git", :using => :git, :revision => "002b06e4fd34963686644397bb36d21764d14639"
+  version "2026.1"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
   option "with-jpeg", "Build against libjpeg instead of libjpeg-turbo"
@@ -99,6 +99,6 @@ class Covise < Formula
 
   test do
     system "covise --version"
-    system "opencover --version"
+    system "opencover --help"
   end
 end
