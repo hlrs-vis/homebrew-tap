@@ -7,7 +7,6 @@ class Covise < Formula
   version "2025.6"
   head "https://github.com/hlrs-vis/covise.git", :using => :git
 
-  option "with-cuda", "Build with CUDA support"
   option "with-jpeg", "Build against libjpeg instead of libjpeg-turbo"
   option "with-fortran", "Build modules requiring Fortran"
   option "with-assimp", "Build without support for reading 3D models with Assimp"
@@ -38,7 +37,6 @@ class Covise < Formula
   depends_on "assimp" if build.with? "assimp"
   depends_on "cgns" => :optional
   depends_on "snappy" => :optional
-  depends_on "Caskroom/cask/cuda" if build.with? "cuda"
   depends_on "proj" => :recommended
   depends_on "gdal" => :recommended
   depends_on "libarchive"
@@ -81,8 +79,7 @@ class Covise < Formula
     cmake_args << "-DCOVISE_USE_X11:BOOL=OFF"
     cmake_args << "-DCOVISE_USE_FORTRAN:BOOL=ON" if build.with? "fortran"
     cmake_args << "-DCOVISE_USE_FORTRAN:BOOL=OFF" if build.without? "fortran"
-    cmake_args << "-DCOVISE_USE_CUDA:BOOL=ON" if build.with? "cuda"
-    cmake_args << "-DCOVISE_USE_CUDA:BOOL=OFF" if build.without? "cuda"
+    cmake_args << "-DCOVISE_USE_CUDA:BOOL=OFF"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=OFF" if build.without? "mpi"
     cmake_args << "-DCOVISE_USE_MPI:BOOL=ON" if build.with? "mpi"
     cmake_args << "-DCOVISE_USE_QT5:BOOL=OFF"
