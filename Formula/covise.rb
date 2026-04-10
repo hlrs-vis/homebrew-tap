@@ -46,6 +46,8 @@ class Covise < Formula
   depends_on "hidapi"
   depends_on "eigen"
   depends_on "bullet"
+  depends_on "glm"
+  depends_on "freealut"
   depends_on "hlrs-vis/tap/osgephemeris"
   depends_on "hlrs-vis/tap/osgcal"
   depends_on "hlrs-vis/tap/opencrg"
