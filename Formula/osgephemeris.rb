@@ -1,8 +1,8 @@
 class Osgephemeris < Formula
   desc "A sky dome and ephemeris model for OSG - Automatically exported from code.google.com/p/osgephemeris"
   homepage "http://osgcal.sourceforge.net"
-  url 'https://github.com/hlrs-vis/osgephemeris.git', :using => :git, :revision => 'ef923a437831e0f3b574b5e802e3aa0e74b4df58'
-  version '2016.3'
+  url 'https://github.com/hlrs-vis/osgephemeris.git', :using => :git, :revision => 'f1064a4c7355389eb236fd4b804964994064e1ba'
+  version '2025.11'
   head "git://github.com/hlrs-vis/osgephemeris.git"
 
   depends_on "cmake" => :build
