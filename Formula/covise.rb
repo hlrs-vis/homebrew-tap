@@ -18,7 +18,12 @@ class Covise < Formula
   depends_on "swig" => :build
 
   depends_on "xerces-c"
-  depends_on "qt@6"
+  depends_on "qtbase"
+  depends_on "qtdeclarative"
+  depends_on "qtpositioning"
+  depends_on "qtlocation"
+  depends_on "qtsvg"
+  depends_on "qttools"
   conflicts_with "qt@5"
   depends_on "glew"
   depends_on "jpeg" => :optional
