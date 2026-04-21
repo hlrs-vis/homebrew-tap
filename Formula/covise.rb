@@ -12,7 +12,7 @@ class Covise < Formula
   option "with-assimp", "Build without support for reading 3D models with Assimp"
   option "without-vtk", "Build without support for VTK data"
   option "without-hdf5", "Build without support for HDF5 based file formats"
-  option "without-mpi", "Build without support for MPI in OpenCOVER"
+  option "with-mpi", "Build without support for MPI in OpenCOVER"
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
