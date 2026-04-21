@@ -24,6 +24,7 @@ class Covise < Formula
   depends_on "qtlocation"
   depends_on "qtsvg"
   depends_on "qttools"
+  depends_on "qtwebview"
   conflicts_with "qt@5"
   depends_on "glew"
   depends_on "jpeg" => :optional
