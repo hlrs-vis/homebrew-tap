@@ -1,8 +1,8 @@
 class Dcmake < Formula
   desc "CMake debugger"
   homepage "https://github.com/skeeto/dcmake"
-  url "https://github.com/skeeto/dcmake/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "2676a64fc69a4abe147e2689f1b11931619cab7370c512c0557150ec0c3109f4"
+  url "https://github.com/skeeto/dcmake/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "ee6a79e45bfccf146af34650bf722216f54e9d4f21f30e7783dd92904b995ff0"
   head "https://github.com/skeeto/dcmake.git", :using => :git
 
   license "Unlicense"
